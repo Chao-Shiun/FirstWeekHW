@@ -79,7 +79,6 @@ C:\Users\s9311\Desktop\ClientManagementHomework\ClientManagementHomework\bin\Mic
 C:\Users\s9311\Desktop\ClientManagementHomework\ClientManagementHomework\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\s9311\Desktop\ClientManagementHomework\ClientManagementHomework\obj\Debug\ClientManagementHomework.dll
 C:\Users\s9311\Desktop\ClientManagementHomework\ClientManagementHomework\obj\Debug\ClientManagementHomework.pdb
-C:\Users\s9311\Desktop\ClientManagementHomework\ClientManagementHomework\obj\Debug\ClientManagementHomework.csprojResolveAssemblyReference.cache
 C:\Users\s9311\Desktop\ClientManagementHomework\ClientManagementHomework\bin\zh-Hant\System.Web.Helpers.resources.dll
 C:\Users\s9311\Desktop\ClientManagementHomework\ClientManagementHomework\bin\zh-Hant\System.Web.Mvc.resources.dll
 C:\Users\s9311\Desktop\ClientManagementHomework\ClientManagementHomework\bin\zh-Hant\System.Web.Optimization.resources.dll
