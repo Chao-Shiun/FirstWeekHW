@@ -11,18 +11,28 @@ namespace ClientManagementHomework.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
     public partial class 客戶聯絡人
     {
         public int Id { get; set; }
+        [Required]
         public int 客戶Id { get; set; }
+        [Required]
+        [StringLength(50, ErrorMessage = "職稱不可超過50個字")]
         public string 職稱 { get; set; }
+        [Required]
+        [StringLength(50, ErrorMessage = "姓名不可超過50個字")]
         public string 姓名 { get; set; }
+        [Required]
+        [EmailAddress(ErrorMessage = "這不是一個有效的Email格式")]
+        [StringLength(250, ErrorMessage = "Email不可超過250個字元")]
         public string Email { get; set; }
+        [StringLength(50, ErrorMessage = "手機字元長度不可超過50個字")]
         public string 手機 { get; set; }
+        [StringLength(50, ErrorMessage = "電話字元長度不可超過50個字")]
         public string 電話 { get; set; }
         public bool 已刪除 { get; set; }
-    
+
         public virtual 客戶資料 客戶資料 { get; set; }
     }
 }
