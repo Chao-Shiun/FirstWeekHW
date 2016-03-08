@@ -1,0 +1,100 @@
+﻿@model ClientManagementHomework.Models.客戶資料
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>客戶資料明細</h2>
+
+<div>
+    <ul class="nav nav-pills">
+        <li role="presentation">
+            @Html.ActionLink("回上一頁", "Index")
+        </li>
+        <li role="presentation">
+            @Html.ActionLink("編輯客戶資料", "Edit", new { id = Model.Id })
+        </li>
+        <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                客戶聯絡人資訊<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    @Html.ActionLink("新增", "Edit", new { id = Model.Id })
+                </li>
+                <li>
+                    @Html.ActionLink("查詢明細", "Edit", new { id = Model.Id })
+                </li>
+                <li>
+                    @Html.ActionLink("刪除", "Edit", new { id = Model.Id })
+                </li>
+            </ul>
+        </li>
+        <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                客戶銀行資訊<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    @Html.ActionLink("新增", "Edit", new { id = Model.Id })
+                </li>
+                <li>
+                    @Html.ActionLink("查詢明細", "Edit", new { id = Model.Id })
+                </li>
+                <li>
+                    @Html.ActionLink("刪除", "Edit", new { id = Model.Id })
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.客戶名稱)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.客戶名稱)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.統一編號)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.統一編號)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.電話)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.電話)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.傳真)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.傳真)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.地址)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.地址)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+    </dl>
+</div>
