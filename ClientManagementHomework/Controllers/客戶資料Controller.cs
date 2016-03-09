@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -58,8 +59,32 @@ namespace ClientManagementHomework.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             客戶資料 客戶資料 = db.客戶資料.Find(id);
+
+            客戶資料.已刪除 = true;
+
+            if (ModelState.IsValid)
+            {
+                db.Entry(客戶資料).State = EntityState.Modified;
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    foreach (DbEntityValidationResult item in ex.EntityValidationErrors)
+                    {
+                        foreach (var li in item.ValidationErrors)
+                        {
+                            throw new Exception(li.ErrorMessage);
+                        }
+                    }
+                }
+                return RedirectToAction("Index");
+            }
+
+            /*客戶資料 客戶資料 = db.客戶資料.Find(id);
             db.客戶資料.Remove(客戶資料);
-            db.SaveChanges();
+            db.SaveChanges();*/
             return RedirectToAction("Index");
         }
 
@@ -112,7 +137,7 @@ namespace ClientManagementHomework.Controllers
         // GET: 客戶資料
         public ActionResult Index(客戶資料 客戶資料)
         {
-            var result = db.客戶資料.ToList().AsQueryable();
+            var result = db.客戶資料.ToList().AsQueryable().Where(x => x.已刪除.Equals(false));
             if (!string.IsNullOrWhiteSpace(客戶資料.Email))
             {
                 result = result.Where(x => x.Email.Equals(客戶資料.Email));

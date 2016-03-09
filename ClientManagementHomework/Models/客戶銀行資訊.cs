@@ -17,18 +17,17 @@ namespace ClientManagementHomework.Models
         public int Id { get; set; }
         public int 客戶Id { get; set; }
         [Required]
+        [StringLength(50, ErrorMessage = "字串長度不可超過50字")]
         public string 銀行名稱 { get; set; }
         [Required]
-        [RegularExpression("^/+?[1-9][0-9]*$", ErrorMessage = "銀行代碼限定數字")]
         public int 銀行代碼 { get; set; }
         public Nullable<int> 分行代碼 { get; set; }
-        [Required]
-        [MaxLength(50, ErrorMessage = "帳戶名稱不得超過50個字元")]
+        [StringLength(50, ErrorMessage = "字串長度不可超過50字")]
         public string 帳戶名稱 { get; set; }
-        [Required]
-        [MaxLength(20, ErrorMessage = "帳戶號碼不得超過20個字元")]
+        [StringLength(20, ErrorMessage = "字串長度不可超過20字")]
         public string 帳戶號碼 { get; set; }
-
+        public bool 已刪除 { get; set; }
+    
         public virtual 客戶資料 客戶資料 { get; set; }
     }
 }
