@@ -98,3 +98,4 @@ C:\Users\s9311\Desktop\ClientManagementHomework\ClientManagementHomework\bin\zh-
 C:\Users\s9311\Desktop\ClientManagementHomework\ClientManagementHomework\bin\zh-Hant\Microsoft.Owin.Security.Google.resources.dll
 C:\Users\s9311\Desktop\ClientManagementHomework\ClientManagementHomework\bin\zh-Hant\Microsoft.Owin.Security.Twitter.resources.dll
 C:\Users\s9311\Desktop\ClientManagementHomework\ClientManagementHomework\bin\zh-Hant\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+C:\Users\s9311\Desktop\ClientManagementHomework\ClientManagementHomework\obj\Debug\ClientManagementHomework.csprojResolveAssemblyReference.cache
