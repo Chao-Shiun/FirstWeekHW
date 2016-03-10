@@ -20,13 +20,13 @@
             </a>
             <ul class="dropdown-menu">
                 <li>
-                    @Html.ActionLink("新增", "Edit", new { id = Model.Id })
+                    @Html.ActionLink("新增", "Create", "客戶聯絡人", null, null)
                 </li>
                 <li>
-                    @Html.ActionLink("查詢明細", "Detail", "客戶聯絡人", new { id = model.客戶聯絡人.Id }, null)
+                    @Html.ActionLink("查詢明細", "Index", "客戶聯絡人", new { id = Model.Id }, null)
                 </li>
                 <li>
-                    @Html.ActionLink("刪除", "Edit", new { id = Model.Id })
+                    @Html.ActionLink("刪除", "DeleteAll", "客戶聯絡人", new { id = Model.Id }, null)
                 </li>
             </ul>
         </li>
@@ -36,13 +36,13 @@
             </a>
             <ul class="dropdown-menu">
                 <li>
-                    @Html.ActionLink("新增", "Edit", new { id = Model.Id })
+                    @Html.ActionLink("新增", "Create", "客戶銀行資訊", null, null)
                 </li>
                 <li>
-                    @Html.ActionLink("查詢明細", "Edit", new { id = Model.Id })
+                    @Html.ActionLink("查詢明細", "Index", "客戶銀行資訊", new { id = Model.Id }, null)
                 </li>
                 <li>
-                    @Html.ActionLink("刪除", "Edit", new { id = Model.Id })
+                    @Html.ActionLink("刪除", "DeleteAll", "客戶銀行資訊", new { id = Model.Id }, null)
                 </li>
             </ul>
         </li>

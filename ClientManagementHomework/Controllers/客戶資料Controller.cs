@@ -58,13 +58,23 @@ namespace ClientManagementHomework.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            客戶資料 客戶資料 = db.客戶資料.Find(id);
-
-            客戶資料.已刪除 = true;
-
             if (ModelState.IsValid)
             {
-                db.Entry(客戶資料).State = EntityState.Modified;
+                客戶資料 客戶資料 = db.客戶資料.Find(id);
+                客戶資料.已刪除 = true;
+
+                //db.Entry(客戶資料).State = EntityState.Modified;
+
+                foreach (var item in db.客戶聯絡人.Where(x => x.客戶Id == id).ToList())
+                {
+                    item.已刪除 = true;
+                }
+
+                foreach (var item in db.客戶銀行資訊.Where(x => x.客戶Id == id).ToList())
+                {
+                    item.已刪除 = true;
+                }
+
                 try
                 {
                     db.SaveChanges();
@@ -139,29 +149,22 @@ namespace ClientManagementHomework.Controllers
         {
             var result = db.客戶資料.ToList().AsQueryable().Where(x => x.已刪除.Equals(false));
             if (!string.IsNullOrWhiteSpace(客戶資料.Email))
-            {
                 result = result.Where(x => x.Email.Equals(客戶資料.Email));
-            }
+
             if (!string.IsNullOrWhiteSpace(客戶資料.傳真))
-            {
                 result = result.Where(x => x.傳真.Equals(客戶資料.傳真));
-            }
+
             if (!string.IsNullOrWhiteSpace(客戶資料.地址))
-            {
                 result = result.Where(x => x.地址.Equals(客戶資料.地址));
-            }
+
             if (!string.IsNullOrWhiteSpace(客戶資料.統一編號))
-            {
                 result = result.Where(x => x.統一編號.Equals(客戶資料.統一編號));
-            }
+
             if (!string.IsNullOrWhiteSpace(客戶資料.電話))
-            {
                 result = result.Where(x => x.電話.Equals(客戶資料.電話));
-            }
             if (!string.IsNullOrWhiteSpace(客戶資料.客戶名稱))
-            {
                 result = result.Where(x => x.客戶名稱.Equals(客戶資料.客戶名稱));
-            }
+
             return View(result);
         }
 

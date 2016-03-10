@@ -52,24 +52,16 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.已刪除)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.已刪除)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.客戶資料.客戶名稱)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.客戶資料.客戶名稱)
         </dd>
-
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

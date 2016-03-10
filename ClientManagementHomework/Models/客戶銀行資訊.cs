@@ -22,8 +22,10 @@ namespace ClientManagementHomework.Models
         [Required]
         public int 銀行代碼 { get; set; }
         public Nullable<int> 分行代碼 { get; set; }
+        [Required]
         [StringLength(50, ErrorMessage = "字串長度不可超過50字")]
         public string 帳戶名稱 { get; set; }
+        [Required]
         [StringLength(20, ErrorMessage = "字串長度不可超過20字")]
         public string 帳戶號碼 { get; set; }
         public bool 已刪除 { get; set; }
