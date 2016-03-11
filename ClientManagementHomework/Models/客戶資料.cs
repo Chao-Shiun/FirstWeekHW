@@ -20,10 +20,10 @@ namespace ClientManagementHomework.Models
             this.客戶銀行資訊 = new HashSet<客戶銀行資訊>();
             this.客戶聯絡人 = new HashSet<客戶聯絡人>();
         }
-    
+
         public int Id { get; set; }
         [Required]
-        [StringLength(50,ErrorMessage ="長度不可超過50個字")]
+        [StringLength(50, ErrorMessage = "長度不可超過50個字")]
         public string 客戶名稱 { get; set; }
         [Required]
         [StringLength(8, ErrorMessage = "長度不可超過8個字")]
@@ -38,7 +38,7 @@ namespace ClientManagementHomework.Models
         [StringLength(250, ErrorMessage = "長度不可超過250個字")]
         public string Email { get; set; }
         public bool 已刪除 { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<客戶銀行資訊> 客戶銀行資訊 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

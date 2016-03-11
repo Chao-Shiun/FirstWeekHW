@@ -90,5 +90,16 @@
       <End Role="客戶資料" EntitySet="客戶資料" />
       <End Role="客戶聯絡人" EntitySet="客戶聯絡人" />
     </AssociationSet>
+    <EntitySet Name="VClientCount" EntityType="客戶資料Model.VClientCount" />
   </EntityContainer>
+  <EntityType Name="VClientCount">
+    <Key>
+      <PropertyRef Name="客戶名稱" />
+      <PropertyRef Name="公司聯絡人數" />
+      <PropertyRef Name="公司銀行資訊數" />
+    </Key>
+    <Property Name="客戶名稱" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="公司聯絡人數" Type="Int32" Nullable="false" />
+    <Property Name="公司銀行資訊數" Type="Int32" Nullable="false" />
+  </EntityType>
 </Schema>

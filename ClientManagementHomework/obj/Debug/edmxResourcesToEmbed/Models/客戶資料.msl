@@ -54,5 +54,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="VClientCount">
+      <EntityTypeMapping TypeName="客戶資料Model.VClientCount">
+        <MappingFragment StoreEntitySet="VClientCount">
+          <ScalarProperty Name="公司銀行資訊數" ColumnName="公司銀行資訊數" />
+          <ScalarProperty Name="公司聯絡人數" ColumnName="公司聯絡人數" />
+          <ScalarProperty Name="客戶名稱" ColumnName="客戶名稱" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

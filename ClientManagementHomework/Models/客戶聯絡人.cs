@@ -17,7 +17,7 @@ namespace ClientManagementHomework.Models
         public int Id { get; set; }
         public int 客戶Id { get; set; }
         [Required]
-        [StringLength(50,ErrorMessage ="字串長度不可超過50字")]
+        [StringLength(50, ErrorMessage = "字串長度不可超過50字")]
         public string 職稱 { get; set; }
         [Required]
         [StringLength(50, ErrorMessage = "字串長度不可超過50字")]
@@ -25,13 +25,15 @@ namespace ClientManagementHomework.Models
         [Required]
         [EmailAddress]
         [StringLength(250, ErrorMessage = "字串長度不可超過250字")]
+        [EmailRepeatVerification(ErrorMessage = "Email已存在，請再輸入新的Email")]
         public string Email { get; set; }
         [StringLength(50, ErrorMessage = "字串長度不可超過50字")]
+        [CellPhoneVerification(ErrorMessage = "手機格式錯誤，應該為xxxx-xxxxxx")]
         public string 手機 { get; set; }
         [StringLength(50, ErrorMessage = "字串長度不可超過50字")]
         public string 電話 { get; set; }
         public bool 已刪除 { get; set; }
-    
+
         public virtual 客戶資料 客戶資料 { get; set; }
     }
 }

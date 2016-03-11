@@ -54,6 +54,18 @@
           <Property Name="電話" Type="nvarchar" MaxLength="50" />
           <Property Name="已刪除" Type="bit" Nullable="false" />
         </EntityType>
+        <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'C:\USERS\S9311\DESKTOP\CLIENTMANAGEMENTHOMEWORK\CLIENTMANAGEMENTHOMEWORK\APP_DATA\客戶資料.MDF.dbo.VClientCount' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+        <EntityType Name="VClientCount">
+          <Key>
+            <PropertyRef Name="客戶名稱" />
+            <PropertyRef Name="公司聯絡人數" />
+            <PropertyRef Name="公司銀行資訊數" />
+          </Key>
+          <Property Name="客戶名稱" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="公司聯絡人數" Type="int" Nullable="false" />
+          <Property Name="公司銀行資訊數" Type="int" Nullable="false" />
+        </EntityType>
         <Association Name="FK_客戶銀行資訊_客戶資料">
           <End Role="客戶資料" Type="Self.客戶資料" Multiplicity="1" />
           <End Role="客戶銀行資訊" Type="Self.客戶銀行資訊" Multiplicity="*" />
@@ -83,6 +95,13 @@
           <EntitySet Name="客戶資料" EntityType="Self.客戶資料" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="客戶銀行資訊" EntityType="Self.客戶銀行資訊" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="客戶聯絡人" EntityType="Self.客戶聯絡人" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VClientCount" EntityType="Self.VClientCount" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VClientCount].[客戶名稱] AS [客戶名稱], 
+    [VClientCount].[公司聯絡人數] AS [公司聯絡人數], 
+    [VClientCount].[公司銀行資訊數] AS [公司銀行資訊數]
+    FROM [dbo].[VClientCount] AS [VClientCount]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_客戶銀行資訊_客戶資料" Association="Self.FK_客戶銀行資訊_客戶資料">
             <End Role="客戶資料" EntitySet="客戶資料" />
             <End Role="客戶銀行資訊" EntitySet="客戶銀行資訊" />
@@ -186,7 +205,18 @@
             <End Role="客戶資料" EntitySet="客戶資料" />
             <End Role="客戶聯絡人" EntitySet="客戶聯絡人" />
           </AssociationSet>
+          <EntitySet Name="VClientCount" EntityType="客戶資料Model.VClientCount" />
         </EntityContainer>
+        <EntityType Name="VClientCount">
+          <Key>
+            <PropertyRef Name="客戶名稱" />
+            <PropertyRef Name="公司聯絡人數" />
+            <PropertyRef Name="公司銀行資訊數" />
+          </Key>
+          <Property Name="客戶名稱" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="公司聯絡人數" Type="Int32" Nullable="false" />
+          <Property Name="公司銀行資訊數" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -243,6 +273,15 @@
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="手機" ColumnName="手機" />
                 <ScalarProperty Name="電話" ColumnName="電話" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VClientCount">
+            <EntityTypeMapping TypeName="客戶資料Model.VClientCount">
+              <MappingFragment StoreEntitySet="VClientCount">
+                <ScalarProperty Name="公司銀行資訊數" ColumnName="公司銀行資訊數" />
+                <ScalarProperty Name="公司聯絡人數" ColumnName="公司聯絡人數" />
+                <ScalarProperty Name="客戶名稱" ColumnName="客戶名稱" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
